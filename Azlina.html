@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love, Azlina ❤️</title>
+    <style>
+        /* Simple and elegant styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .info {
+            margin-bottom: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        /* Fancy button */
+        .btn-class-name {
+            --primary: 255, 90, 120;
+            --secondary: 150, 50, 60;
+            width: 60px;
+            height: 50px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            user-select: none;
+            touch-action: manipulation;
+            outline: 10px solid rgb(var(--primary), .5);
+            border-radius: 100%;
+            position: relative;
+            transition: .3s;
+        }
+
+        .btn-class-name .back {
+            background: rgb(var(--secondary));
+            border-radius: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn-class-name .front {
+            background: linear-gradient(0deg, rgba(var(--primary), .6) 20%, rgba(var(--primary)) 50%);
+            box-shadow: 0 .5em 1em -0.2em rgba(var(--secondary), .5);
+            border-radius: 100%;
+            position: absolute;
+            border: 1px solid rgb(var(--secondary));
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: inherit;
+            transform: translateY(-15%);
+            transition: .15s;
+            color: rgb(var(--secondary));
+        }
+
+        .btn-class-name:active .front {
+            transform: translateY(0%);
+            box-shadow: 0 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .reveal {
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .heart {
+            position: absolute;
+            animation: float 10s infinite ease-in-out;
+            font-size: 2rem;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(20px); }
+            100% { transform: translateY(0) translateX(0); }
+        }
+
+        .shimmer {
+            animation: shimmer 1.5s infinite alternate;
+        }
+
+        @keyframes shimmer {
+            0% { color: #ff69b4; text-shadow: 0 0 20px #ff1493, 0 0 30px #ff1493; }
+            100% { color: #fff; text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Georgia&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>For My Love, Azlina ❤️</h1>
+        <p>
+            Every moment with you feels like a dream. You are my sunshine, my joy, and my everything. 
+            This Valentine's Day, I want you to know how much you mean to me.
+        </p>
+        <div class="info">
+            Click for a Surprise
+        </div>
+        <button class="btn-class-name" onclick="revealSurprise()">
+            <span class="back"></span>
+            <span class="front"></span>
+        </button>
+        <div id="surprise" class="hidden reveal">
+            <p style="margin-top: 20px;" class="shimmer">
+                Happy Valentine's Day, my love! You are the most beautiful person I know, inside and out. 
+                I cherish every moment we spend together, and I can't wait to create more memories with you. 
+                I love you more than words can say. ❤️
+            </p>
+            <div style="margin-top: 20px;">
+                <img src="IMG-20230515-WA0010.jpg" controls style="width: 100%; border-radius: 10px;"></img>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function revealSurprise() {
+            const surprise = document.getElementById('surprise');
+            surprise.classList.remove('hidden');
+            surprise.classList.add('reveal');
+
+            // Add confetti explosion effect
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'absolute';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.fontSize = Math.random() * 30 + 10 + 'px';
+                heart.style.animation = `float ${Math.random() * 3 + 2}s ease-in-out`;
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }
+        }
+    </script>
+</body>
+</html>
